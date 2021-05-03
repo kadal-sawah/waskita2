@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?/$1 [L]
+
+<IfModule LiteSpeed>
+CacheDisable public /
+CacheDisable private /
+</IfModule>
+
+php_value disable_functions phpinfo
+ErrorDocument 400 https://tampil.id/page/badrequest
